@@ -1,0 +1,5 @@
+<p>Welcome <%= @user.firstname %>&nbsp;<%= @user.lastname %>!</p>
+
+<p>You can confirm your account through the link below:</p>
+
+<p><%= link_to 'Confirm my account', edit_accountactivation_url(@user.activation_token, email: @user.email) %></p>
