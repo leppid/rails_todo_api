@@ -6,9 +6,9 @@ class UsersController < ApplicationController
     if @user.password === @user.password_confirmation
       email_exists = User.find_by(email: @user.email)
       if !email_exists
-        origin = request.headers['origin']
-        UserMailer.account_activation(@user, origin).deliver
         if @user.save!
+          origin = request.headers['origin']
+          UserMailer.account_activation(@user, origin).deliver
           render json: { message: 'Almost done! Please check your email for activate your account.', status: 'success' }, status: 200
         else
           render json: { message: User.create(user_params).errors, status: 'error'}, status: 404 
@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def confirmemail
     user = User.find_by_activation_digest(params[:user])
     if user && user.update_column(:activated, true)
-      render json: { message: 'Account successfly activated!', status: 'success' }, status: 200
+      render json: { message: 'Account successfully activated', status: 'success' }, status: 200
     end
   end
 
