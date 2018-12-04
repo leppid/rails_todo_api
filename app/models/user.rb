@@ -1,4 +1,9 @@
 class User < ApplicationRecord
+
+  has_many :tasks
+
+  accepts_nested_attributes_for :tasks
+
   attr_accessor :activation_token
   before_create :create_activation_digest
   validates :firstname, presence: true, length: { minimum: 3 }

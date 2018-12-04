@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
   end
 
   def current_user
-    
+    User.find_by(activation_digest: request.headers['Authorization'])
   end
 
 end
