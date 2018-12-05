@@ -16,7 +16,14 @@ def index
     end
   end
 
+  def destroy
+    task = current_user.tasks.find(params[:id])
+    if task
+    task.destroy
+    end
+  end
+
   def task_params
-    params.require(:task).permit(:title, :description, :priority, :duedate)
+    params.require(:task).permit(:title, :description, :priority, :duedate, :done)
   end
 end
