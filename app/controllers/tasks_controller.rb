@@ -16,6 +16,24 @@ def index
     end
   end
 
+  def show
+    task = current_user.tasks.find(params[:id])
+    if task
+      render json: task, each_serializer: TasksSerializer, status: 200
+    else
+      render status: 400
+    end
+  end
+
+  def update
+    task = current_user.tasks.find(params[:id])
+    if task.update(task_params)
+      render json: task, each_serializer: TasksSerializer
+    else
+      render status: 400
+    end
+  end
+
   def destroy
     task = current_user.tasks.find(params[:id])
     if task
