@@ -1,6 +1,4 @@
 class UsersController < ApplicationController
-
-
   def create
     @user = User.new(user_params)
     if @user.password === @user.password_confirmation
@@ -10,17 +8,14 @@ class UsersController < ApplicationController
           origin = request.headers['origin']
           UserMailer.account_activation(@user, origin).deliver
           render json: { message: 'Almost done! Please check your email for activate your account', status: 'success' }, status: 200
-        else
-          render json: { message: User.create(user_params).errors, status: 'error'}, status: 404
         end
       else
-        render json: { message: 'Email exists', status: 'error' }, status: 207
+        render json: { message: 'Email exists', status: 'error' }, status: 404
       end
     else
-      render json: { message: 'Passwords do not match', status: 'error' }, status: 207
+      render json: { message: 'Passwords do not match', status: 'error' }, status: 404
     end
   end
-
 
   def confirmemail
     user = User.find_by_activation_digest(params[:user])
@@ -32,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation )
+    params.require(:user).permit(:email, :firstname, :lastname, :password, :password_confirmation)
   end
 end

@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create]
 
-  resources :tasks
-
+  resources :tasks do
+    collection do
+      post :destroychecked
+    end
+  end
 end
