@@ -32,7 +32,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
   gem 'simplecov', require: false, group: :test
-  gem 'sqlite3'
+  gem 'pg'
+  # gem 'sqlite3'
 end
 
 group :development do
