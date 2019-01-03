@@ -31,25 +31,19 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.perform_deliveries = true
-
-  config.action_mailer.default_url_options = { :host => "dtodo.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "https://dtodo.herokuapp.com/" }
 
   config.action_mailer.delivery_method = :smtp
 
   config.action_mailer.smtp_settings = {
-    address: 'smtp.gmail.com',
-    port: 587,
-    domain: 'dtodo.herokuapp.com',
-    user_name: 'aacaut2@gmail.com',
-    password: 'jVS9mCrJ',
-    enable_starttls_auto: true,
-    authentication: :plain
-  }
-
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
+  address: 'smtp.gmail.com',
+  port: 587,
+  domain: 'smtp.gmail.com',
+  user_name: 'aacaut2@gmail.com',
+  password: 'jVS9mCrJ',
+  enable_starttls_auto: true ,
+  authentication: :plain
+}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
