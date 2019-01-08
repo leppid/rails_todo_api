@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20190103140553) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "description"
@@ -24,11 +21,11 @@ ActiveRecord::Schema.define(version: 20190103140553) do
     t.date "duedate"
     t.date "compdate"
     t.integer "priority", default: 0
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "firstname"
     t.string "lastname"
@@ -40,5 +37,4 @@ ActiveRecord::Schema.define(version: 20190103140553) do
     t.datetime "activated_at"
   end
 
-  add_foreign_key "tasks", "users"
 end
