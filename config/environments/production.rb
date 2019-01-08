@@ -51,23 +51,11 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "api_app_name_#{Rails.env}"
-  config.action_mailer.raise_delivery_errors = true
-
-  config.action_mailer.perform_caching = false
-
-  config.action_mailer.default_url_options = { :host => "https://dtodo.herokuapp.com/" }
-
-  config.action_mailer.delivery_method = :smtp
-
-  config.action_mailer.smtp_settings = {
-  address: 'smtp.gmail.com',
-  port: 587,
-  domain: 'smtp.gmail.com',
-  user_name: 'dedoshack@gmail.com',
-  password: 'jVS9mCrJ',
-  enable_starttls_auto: true ,
-  authentication: :plain
-}
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+    api_key: 'd38e179a595fe55f01b4c94b46208bfa-060550c6-d11782cf',
+    domain: 'dtodoclient.herokuapp.com'
+  }
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
