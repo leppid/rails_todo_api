@@ -65,6 +65,7 @@ Rails.application.configure do
       :password => "jVS9mCrJ",
       :authentication => :plain,
       :enable_starttls_auto => true
+      :openssl_verify_mode => 'none'
   }
 
   # Ignore bad email addresses and do not raise email delivery errors.
