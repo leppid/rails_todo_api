@@ -53,7 +53,7 @@ Rails.application.configure do
   # config.active_job.queue_name_prefix = "api_app_name_#{Rails.env}"
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host:'https://dtodo.herokuapp.com/'}
+  config.action_mailer.default_url_options = { :host => 'https://dtodo.herokuapp.com/' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.default :charset => "utf-8"
