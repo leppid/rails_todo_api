@@ -30,7 +30,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :mailgun
   config.action_mailer.mailgun_settings = {
     api_key: 'd38e179a595fe55f01b4c94b46208bfa-060550c6-d11782cf',
-    domain: 'sandboxbe7c02fbbd38488ab335b8dd399f0db1.mailgun.org'
+    domain: 'aacaut2@gmail.com'
   }
 
   # Print deprecation notices to the Rails logger.
