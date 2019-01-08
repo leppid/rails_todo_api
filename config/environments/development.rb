@@ -27,24 +27,23 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.perform_caching = false
-  config.active_support.deprecation = :log
-  config.active_record.migration_error = :page_load
-  config.assets.debug = true
-  config.assets.quiet = true
-  config.file_watcher = ActiveSupport::EventedFileUpdateChecker
-  ActionMailer::Base.smtp_settings = {
-    :user_name => 'aacaut2',
-    :password => 'jVS9MCrJ',
-    :domain => 'gmail.com',
-    :address => 'smtp.gmail.com',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
-  config.action_mailer.default_url_options = { :host => "https://dtodo.herokuapp.com/" }
+  config.action_mailer.raise_delivery_errors = true
 
+  config.action_mailer.perform_caching = false
+
+  config.action_mailer.default_url_options = { :host => "https://dtodoclient.herokuapp.com/" }
+
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.gmail.com',
+  port: 587,
+  domain: 'smtp.gmail.com',
+  user_name: 'aacaut2@gmail.com',
+  password: 'jVS9mCrJ',
+  enable_starttls_auto: true ,
+  authentication: :plain
+}
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
