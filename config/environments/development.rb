@@ -27,10 +27,26 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.delivery_method = :mailgun
-  config.action_mailer.mailgun_settings = {
-    api_key: 'd38e179a595fe55f01b4c94b46208bfa-060550c6-d11782cf',
-    domain: 'sandboxbe7c02fbbd38488ab335b8dd399f0db1.mailgun.org'
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: 'd38e179a595fe55f01b4c94b46208bfa-060550c6-d11782cf',
+  #   domain: 'sandboxbe7c02fbbd38488ab335b8dd399f0db1.mailgun.org'
+  # }
+
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default_url_options = {:host => 'https://dtodo.herokuapp.com/'}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.gmail.com',
+    port:                 587,
+    domain:               'gmail.com',
+    user_name:            'aacaut2@gmail.com',
+    password:             'jVS9mCrJ',
+    authentication:       :plain,
+    enable_starttls_auto: true
   }
 
   # Print deprecation notices to the Rails logger.
