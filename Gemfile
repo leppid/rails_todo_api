@@ -8,7 +8,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+#gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 gem 'mailgun-ruby', '~>1.1.6'
@@ -33,7 +33,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'factory_bot_rails'
   gem 'simplecov', require: false, group: :test
-  # gem 'sqlite3'
+  gem 'sqlite3'
 end
 
 group :development do
